@@ -1,0 +1,13 @@
+package ar.com.grupoesfera.csd.pois;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class PoisApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
