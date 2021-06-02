@@ -1,8 +1,10 @@
 package ar.com.grupoesfera.csd.pois.aceptacion;
 
+import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
-import net.serenitybdd.cucumber.CucumberWithSerenity;
 import org.junit.runner.RunWith;
 
+@RunWith(Cucumber.class)
+@CucumberOptions(features = "src/test/resources")
 public class EjecutorPruebasAceptacion {
 }
