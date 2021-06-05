@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources/features",
-                 plugin = { "json:target/cucumber-report/cucumber.json" })
-public class EjecutorPruebasAceptacionTest {
+                 plugin = { "json:target/json/cucumber.json"},
+                 tags = "not @WIP")
+public class EjecutorPruebasAceptacion {
 }
