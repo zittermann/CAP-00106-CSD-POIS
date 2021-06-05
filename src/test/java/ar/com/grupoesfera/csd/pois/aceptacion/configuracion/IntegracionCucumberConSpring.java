@@ -1,4 +1,4 @@
-package ar.com.grupoesfera.csd.pois.aceptacion.pasos;
+package ar.com.grupoesfera.csd.pois.aceptacion.configuracion;
 
 import ar.com.grupoesfera.csd.pois.PoisApplication;
 import io.cucumber.spring.CucumberContextConfiguration;
