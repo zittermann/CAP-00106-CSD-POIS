@@ -36,6 +36,6 @@ public class ServicioDePoi {
                 poiMasCercano = unPoi;
             }
         }
-        return Optional.of(poiMasCercano);
+        return Optional.ofNullable(poiMasCercano);
     }
 }
