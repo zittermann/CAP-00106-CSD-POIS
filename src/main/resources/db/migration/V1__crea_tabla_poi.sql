@@ -1,0 +1,8 @@
+CREATE TABLE POI (
+   id BIGINT AUTO_INCREMENT NOT NULL,
+   latitud DECIMAL NOT NULL,
+   longitud DECIMAL NOT NULL,
+   nombre VARCHAR(100) NOT NULL,
+   descripcion VARCHAR(255) NULL default NULL,
+   PRIMARY KEY (id)
+);
