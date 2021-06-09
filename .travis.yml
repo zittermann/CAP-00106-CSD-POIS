@@ -1,0 +1,9 @@
+language: java
+jobs:
+  include:
+    - stage: compilar
+      script: mvn compile
+    - stage: test unitarios
+      script: mvn test
+      stage: test de integración y aceptación
+      script: mvn verify
