@@ -7,3 +7,5 @@ jobs:
       script: mvn test
       stage: test de integración y aceptación
       script: mvn verify
+before_install:
+  - chmod +x mvnw
