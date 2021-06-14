@@ -3,16 +3,15 @@ package ar.com.grupoesfera.csd.pois.integracion.servicios;
 import ar.com.grupoesfera.csd.pois.modelos.Poi;
 import ar.com.grupoesfera.csd.pois.repositorio.RepositorioDePoi;
 import ar.com.grupoesfera.csd.pois.servicios.ServicioDePoi;
-import org.assertj.core.api.Condition;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 
-import java.util.List;
+import java.util.Arrays;
 import java.util.Optional;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 @TestPropertySource(locations="classpath:integration-test.properties")
@@ -41,11 +40,11 @@ public class ServicioDePoiIntegrationTest {
         Poi guerrin = new Poi(-34.60393, -58.38605, "Guerrin", "Pizzeria al paso");
         Poi lasCuartetas = new Poi(-34.60370, -58.37905, "Las cuartetas", "La mejor pizza a la piedra");
 
-        this.repositorio.saveAll(List.of(elCuartito, guerrin, lasCuartetas));
+        this.repositorio.saveAll(Arrays.asList(elCuartito, guerrin, lasCuartetas));
 
         Optional<Poi> poiMasCercano = this.servicio.obtenerPoiMasCercano(-34.603765, -58.381570);
 
-        Condition<Poi> esLasCuartetas = new Condition<>(poi -> "Las cuartetas".equals(poi.getNombre()), "Las cuartetas");
-        assertThat(poiMasCercano).hasValueSatisfying(esLasCuartetas);
+        assertThat(poiMasCercano.isPresent()).isTrue();
+        assertThat(poiMasCercano.get().getNombre()).isEqualTo("Las cuartetas");
     }
 }
