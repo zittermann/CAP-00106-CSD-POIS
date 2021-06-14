@@ -3,9 +3,5 @@ jobs:
   include:
     - stage: compilar
       script: mvn compile
-    - stage: test unitarios
-      script: mvn test
-    - stage: test de integracion y aceptacion
-      script: mvn verify
 before_install:
   - chmod +x mvnw
