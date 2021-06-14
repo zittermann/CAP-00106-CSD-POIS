@@ -14,7 +14,7 @@
 	<name>pois</name>
 	<description>Proyecto para el curso CSD utilizando el negocio de geo-posicionamiento</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>8</java.version>
 		<testcontainers.version>1.15.3</testcontainers.version>
 		<cucumber.version>6.10.2</cucumber.version>
 		<cucumber.report.json.location>${project.build.directory}/json</cucumber.report.json.location>
