@@ -8,7 +8,7 @@ public class ContextoCompartido {
 
     private ResultActions resultado;
 
-    public void AgregarResultado(ResultActions resultado) {
+    public void agregarResultado(ResultActions resultado) {
         this.resultado = resultado;
     }
 

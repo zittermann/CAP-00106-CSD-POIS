@@ -57,6 +57,6 @@ public class PoisPasos {
                 .queryParam("latitud", this.latitud)
                 .queryParam("longitud",this.longitud));
 
-        this.contextoCompartido.AgregarResultado(resultado);
+        this.contextoCompartido.agregarResultado(resultado);
     }
 }
