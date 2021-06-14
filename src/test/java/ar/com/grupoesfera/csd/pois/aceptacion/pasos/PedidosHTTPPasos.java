@@ -23,7 +23,7 @@ public class PedidosHTTPPasos {
     @When("el cliente hace un GET a {string}")
     public void elClienteHaceUnGETA(String ruta) throws Exception {
         ResultActions resultado = mockMvc.perform(get(ruta));
-        this.contextoCompartido.AgregarResultado(resultado);
+        this.contextoCompartido.agregarResultado(resultado);
     }
 
     @Then("recibe la respuesta con codigo de estado {int} y contenido")
