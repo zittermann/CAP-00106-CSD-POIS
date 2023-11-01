@@ -2,7 +2,7 @@ package ar.com.grupoesfera.csd.pois.modelos;
 
 import javax.persistence.*;
 
-@Entity
+@Entity @Table(name = "location")
 public class Location {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
