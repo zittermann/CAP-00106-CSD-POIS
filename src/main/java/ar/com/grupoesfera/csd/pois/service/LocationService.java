@@ -24,7 +24,7 @@ public class LocationService {
 
     public Location findNearestLocation(Double lat, Double lon, String label) {
 
-        List<Location> locations = repository.findAllByLabel(label);
+        List<Location> locations = repository.findAllByLabel(label); // Encuentra todas las localizaciones con ese label
 
         Location nearestInterestPoint = null;
         double closestLocation = 5; // in km, cannot bet longer than 5km
@@ -40,9 +40,8 @@ public class LocationService {
 
         }
 
-        if (closestLocation == 5 ) // Significa que ningún punto está más cerca de 5km
-            throw new NoNearPointFoundException("No se ha encontrado un puntoc cercano");
-
+        if (closestLocation == 5) // Significa que ningún punto está más cerca de 5km
+            throw new NoNearPointFoundException("No se ha encontrado un punto cercano");
 
         return nearestInterestPoint;
 
