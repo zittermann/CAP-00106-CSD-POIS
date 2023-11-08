@@ -12,6 +12,8 @@ import static ar.com.grupoesfera.csd.pois.helpers.LocationHelper.calculateDistan
 @Service
 public class LocationService {
 
+    // TODO: Encontrar todos los que estén dentro de un rango
+
     private LocationRepository repository;
 
     public LocationService(LocationRepository repository) {
