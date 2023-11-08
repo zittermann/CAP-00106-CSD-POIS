@@ -44,7 +44,7 @@ public class LocationService {
 
         }
 
-        if (closestLocation == 5) // Significa que ningún punto está más cerca de 5km
+        if (closestLocation == MINIMUN_DISTANCE) // Significa que ningún punto está más cerca de 5km
             throw new NoNearPointFoundException("No se ha encontrado un punto cercano");
 
         return nearestInterestPoint;
