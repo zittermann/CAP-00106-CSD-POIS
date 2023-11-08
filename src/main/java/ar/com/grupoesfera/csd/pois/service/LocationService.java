@@ -3,7 +3,6 @@ package ar.com.grupoesfera.csd.pois.service;
 import ar.com.grupoesfera.csd.pois.exceptions.NoNearPointFoundException;
 import ar.com.grupoesfera.csd.pois.modelos.Location;
 import ar.com.grupoesfera.csd.pois.repositorio.LocationRepository;
-import javassist.NotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
