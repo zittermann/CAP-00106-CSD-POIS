@@ -5,6 +5,7 @@ import ar.com.grupoesfera.csd.pois.service.LocationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController @RequestMapping("/api/locations")
@@ -32,6 +33,14 @@ public class LocationController {
             @RequestParam("lon") Double longtitude,
             @RequestParam String label) {
         return ResponseEntity.ok(service.findNearestLocation(latitude, longtitude, label));
+    }
+
+    @GetMapping("/all-nearest")
+    public ResponseEntity<ArrayList<Location>> findAllNearestLocations(
+            @RequestParam("lat") Double latitude,
+            @RequestParam("lon") Double longtitude,
+            @RequestParam String label) {
+        return ResponseEntity.ok(service.findAllNearestLocations(latitude, longtitude, label));
     }
 
 }

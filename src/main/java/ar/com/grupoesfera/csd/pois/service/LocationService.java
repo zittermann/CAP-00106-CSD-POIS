@@ -3,8 +3,10 @@ package ar.com.grupoesfera.csd.pois.service;
 import ar.com.grupoesfera.csd.pois.exceptions.NoNearPointFoundException;
 import ar.com.grupoesfera.csd.pois.modelos.Location;
 import ar.com.grupoesfera.csd.pois.repositorio.LocationRepository;
+import javassist.NotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static ar.com.grupoesfera.csd.pois.helpers.LocationHelper.calculateDistance;
@@ -12,13 +14,13 @@ import static ar.com.grupoesfera.csd.pois.helpers.LocationHelper.calculateDistan
 @Service
 public class LocationService {
 
-    // TODO: Encontrar todos los que estén dentro de un rango
-
     private LocationRepository repository;
 
     public LocationService(LocationRepository repository) {
         this.repository = repository;
     }
+
+    private final double MINIMUN_DISTANCE = 5; // in km, cannot bet longer than 5km
 
     public List<Location> findAll() {
         return repository.findAll();
@@ -29,7 +31,7 @@ public class LocationService {
         List<Location> locations = repository.findAllByLabel(label); // Encuentra todas las localizaciones con ese label
 
         Location nearestInterestPoint = null;
-        double closestLocation = 5; // in km, cannot bet longer than 5km
+        double closestLocation = MINIMUN_DISTANCE; // in km, cannot bet longer than 5km
 
         for(Location location: locations) {
             double distance = calculateDistance(lat, lon,
@@ -46,6 +48,29 @@ public class LocationService {
             throw new NoNearPointFoundException("No se ha encontrado un punto cercano");
 
         return nearestInterestPoint;
+
+    }
+
+    public ArrayList<Location> findAllNearestLocations(Double lat, Double lon, String label) {
+
+        List<Location> locations = repository.findAllByLabel(label); // Encuentra todas las localizaciones con ese label
+
+        ArrayList<Location> results = new ArrayList<>();
+
+        for(Location location: locations) {
+            double distance = calculateDistance(lat, lon,
+                    location.getLatitude(), location.getLongitude());
+
+            if (distance < MINIMUN_DISTANCE) {
+                results.add(location);
+            }
+
+        }
+
+        if (results.isEmpty())
+            throw new NoNearPointFoundException("No se han encontrado puntos cercanos");
+
+        return results;
 
     }
 
