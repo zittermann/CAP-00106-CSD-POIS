@@ -1,6 +1,5 @@
 package ar.com.grupoesfera.csd.pois.unitarias.servicios;
 
-import ar.com.grupoesfera.csd.pois.controladores.LocationController;
 import ar.com.grupoesfera.csd.pois.exceptions.NoNearPointFoundException;
 import ar.com.grupoesfera.csd.pois.modelos.Location;
 import ar.com.grupoesfera.csd.pois.repositorio.LocationRepository;
@@ -11,7 +10,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +19,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-@WebMvcTest(LocationController.class)
 public class LocationServiceTest {
 
     @Mock
